@@ -103,7 +103,7 @@ var compileSassFile = function(fileName, options) {
     }
 
     var moduleFile = buildModuleFile(result.css)
-    newFileName = newFileName.replace(/(\.sass|.scss)/, "styles.ts")
+    newFileName = newFileName.replace(/(\.sass|.scss)/, ".styles.ts")
 
     newFileName = handleSassSubDir(newFileName)
     updateDeps(result)

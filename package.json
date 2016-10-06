@@ -1,6 +1,6 @@
 {
   "name": "@mohuk/typescript-sass",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "parse sass files for typescript components",
   "homepage": "https://github.com/mohuk/typescript-sass",
   "private": false,
