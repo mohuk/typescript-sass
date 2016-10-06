@@ -1,8 +1,8 @@
 {
-  "name": "typescript-sass",
+  "name": "@mohuk/typescript-sass",
   "version": "0.0.0",
   "description": "parse sass files for typescript components",
-  "homepage": "https://github.com/renz45/typescript-sass",
+  "homepage": "https://github.com/mohuk/typescript-sass",
   "private": false,
   "directories": {},
   "bin": {
@@ -11,11 +11,14 @@
   "scripts": {
     "start": "node tsSass.js"
   },
-  "repository": "git@github.com:renz45/typescript-sass.git",
+  "repository": "git@github.com:mohuk/typescript-sass.git",
   "engines": {
     "node": ">= 0.10.0"
   },
   "author": "Adam Rensel",
+  "contributors": [
+    "Mohammad Umair Khan <mohammad.umair.k@gmail.com>"
+  ],
   "license": "MIT",
   "dependencies": {
     "glob": "^6.0.3",

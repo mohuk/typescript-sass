@@ -16,6 +16,7 @@ try {
 
 var sassDir = options && options.sassDir //"app"
 var sassSubDir = options && options.sassSubDir //"sass"
+var watch = options && options.watch
 
 glob(sassDir + "/**/*.sass", {dot: true}, function (er, files) {
   var l = files.length
@@ -61,7 +62,7 @@ var buildModuleFile = function(css) {
   return [
     'export default `',
     css,
-    '`'
+    '`;\n'
   ].join("\n")
 }
 
@@ -102,7 +103,7 @@ var compileSassFile = function(fileName, options) {
     }
 
     var moduleFile = buildModuleFile(result.css)
-    newFileName = newFileName.replace(/(\.sass|.scss)/, ".ts")
+    newFileName = newFileName.replace(/(\.sass|.scss)/, "styles.ts")
 
     newFileName = handleSassSubDir(newFileName)
     updateDeps(result)
@@ -117,9 +118,11 @@ var compileSassFile = function(fileName, options) {
   });
 }
 
-fs.watch(sassDir, {recursive: true}, function (event, fileName) {
-  if (fileName.match(/(\.sass|\.scss)$/)) {
-    console.log("Compiling Sass File: " + fileName)
-    compileSassFile(fileName, {baseDir: sassDir})
-  }
-});
+if (watch) {
+  fs.watch(sassDir, {recursive: true}, function (event, fileName) {
+    if (fileName.match(/(\.sass|\.scss)$/)) {
+      console.log("Compiling Sass File: " + fileName)
+      compileSassFile(fileName, {baseDir: sassDir})
+    }
+  });
+}

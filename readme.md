@@ -1,5 +1,7 @@
 # Typescript Sass
 
+*This is a fork of [renz45/typescript-sass](https://github.com/renz45/typescript-sass) published as a separate module*
+
 ## What is this?
 This is an experiment that came about from learning a bit of Angular2 and wanting to
 use sass in component styles. The idea behind this module is that it watches your
@@ -77,6 +79,12 @@ li {
 Sass imports are also supported currently. Import paths are derived from the parent directory
 of the compiled file and the `sassDir` from the config file.
 
+# Installation
+
+```bash
+$ npm install @mohuk/typescript-sass --save-dev
+```
+
 
 # Usage
 I've been using this with the concurrently module in my project
@@ -98,7 +106,8 @@ For Basic configuration you can include a `tsSassConfig.json` file in your proje
 ```json
 {
   "sassDir": "app",
-  "sassSubDir": "sass"
+  "sassSubDir": "sass",
+  "watch": true
 }
 ```
 
@@ -110,6 +119,8 @@ it's just using `fs.watch` so there isn't a great way to exclude node_modules.
 you component directories. I've been experimenting with a `/sass` directory to reduce clutter.
 If this option isn't set then the compiled `.ts` files will be placed in the same directory
 as the original `.sass` files.
+
+`watch` - Indicates if you want your sass files watched for changes. If option isn't set or set to false, then the compilation will happen once and then exit.
 
 # Wat, no tests?!
 Yea, its just an experiment at this point and it's small enough where I'm not 
